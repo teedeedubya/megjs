@@ -1,0 +1,585 @@
+<html>
+<head>
+<script type="text/javascript">
+begin = document.cookie.indexOf('theglory'+"=");
+begin += 'theglory'.length+1;       
+      end = document.cookie.indexOf(";", begin);
+var shreds;
+shreds = document.cookie.substring(begin, end);
+var shred = shreds.split("/");
+var g1 = shred[0];
+var exp = shred[1];
+var atr = shred[2];
+var chp = shred[3];
+var nox = shred[4];
+var confusion = shred[5];	
+var str = shred[6];
+var dex = shred[7];
+var itl = shred[8];
+var luk = shred[9];
+var race = shred[10];
+var sex = shred[11];
+var cname = shred[12];
+var cmp = shred[13];
+var gold = shred[14];
+var univmod = shred[15];
+var mstr = shred[16];
+var mdex = shred[17];
+var mitl = shred[18];
+var mname = shred[19];
+var spevent = shred[20];
+var expg = shred[21]
+var mhp = parseInt((parseInt(mstr)*4)) + parseInt((parseInt(mdex)*2)) + parseInt((parseInt(mitl)*2));
+var hp = parseInt((parseInt(str)*4)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*2));
+var mp = parseInt((parseInt(str)*2)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*4));
+var zvbi = g1.split("x");
+var oy1 = zvbi[0]
+var ox1 = zvbi[1]
+var mchp = mhp;
+var dam = 0;
+var zdex = parseInt(dex) - parseInt(mdex);
+var t = new Array(2);
+var nmk = 0;
+var hw = 0;
+var fw = 0;
+var ew = 0;
+var sexx = 0;
+var ii = 0;
+croll = Math.random();
+croll = croll * 18;
+croll = Math.ceil(croll);
+switch (croll)
+{
+  case 1:
+nmk = "gornak";
+  break;
+case 2:
+nmk = "flaxwort";
+  break;
+case 3:
+nmk = "krogdor";
+  break;
+case 4:
+nmk = "richard";
+  break;
+case 5:
+nmk = "flakemon";
+  break;
+case 6:
+nmk = "crunchmaster";
+  break;
+case 7:
+nmk = "klankorack";
+  break;
+case 8:
+nmk = "fossilbee";
+  break;
+case 9:
+nmk = "tugglesworth";
+  break;
+case 10:
+nmk = "pooy";
+  break;
+case 11:
+nmk = "peter";
+  break;
+case 12:
+nmk = "tinklecakes";
+  break;
+case 13:
+nmk = "nurgul";
+  break;
+case 14:
+nmk = "stinkerton";
+  break;
+case 15:
+nmk = "george";
+  break;
+case 16:
+nmk = "helios";
+  break;
+case 17:
+nmk = "drax"
+  break;
+case 18:
+nmk = "tornak"
+  break;
+default:
+  alert("looks like we have an error!code01");
+  }
+mname = nmk + " the " + mname
+if ( sex == "male")
+{
+sexx = "himeself";
+}
+else
+{
+sexx = "herself";
+}
+function WTF(bbbb)
+{
+t[0] = "-"
+t[1] = "-"
+document.glory.t0.value = t[0]
+document.glory.t1.value = t[1]
+switch (bbbb)
+{
+case 1:
+attack();
+  break;
+case 2:
+defend();
+  break;
+case 3:
+flee();
+  break;
+default:
+  alert("looks like we have an error! code 1");
+}
+}
+function runaway()
+{
+mname = 0
+mitl = 0
+mstr = 0
+mdex = 0
+spevent = 0
+writecookie(2)
+}
+
+function victory()
+{
+
+expg = parseInt((parseInt(mhp) * 2)) - parseInt(univmod)
+gold = parseInt(mdex) + parseInt(mitl) + parseInt(mstr) + parseInt(gold)
+mname = 0
+mitl = 0
+mstr = 0
+mdex = 0
+spevent = 0
+writecookie(1)
+}
+function fail()
+{
+if (univmod <= 0)
+{
+exp = parseInt(exp) - 10
+chp = hp;
+mname = 0;
+mitl = 0;
+mstr = 0;
+mdex = 0;
+spevent = 0;
+writecookie(2)
+}
+else
+{
+exp = parseInt(exp) - parseInt((parseInt(mstr) + parseInt(mdex) + parseInt(mitl)))
+chp = hp;
+mname = 0;
+mitl = 0;
+mstr = 0;
+mdex = 0;
+spevent = 0;
+writecookie(2)
+}
+}
+function checker()
+{
+if (mchp <= 0 && chp > 0)
+{
+victory()
+}
+else if( chp <= 0)
+{
+fail()
+}
+else
+{
+ii = 0;
+document.bob.tchp.value = chp;
+document.bob.tcmp.value = cmp;
+document.bob.tmchp.value = mchp;
+}
+}
+function monlogic(iou)
+{
+if (mchp <= 0)
+{
+checker()
+}
+else
+{
+var pdam = parseInt((parseInt(mstr) / 3)) + parseInt((parseInt(mdex) / 2));
+roll = Math.random();
+roll = roll * 10;
+roll = Math.ceil(roll);
+if ( roll == 1 || roll == 2)
+{
+combattext(1,mname,cname,0)
+checker()
+}
+else if ( roll == 10)
+{
+var xzx = parseInt((parseInt(mstr) / 3)) + parseInt((parseInt(mdex) / 2));
+roll = Math.random();
+roll = roll * xzx;
+roll = Math.ceil(roll);
+dam = roll;
+chp = parseInt(chp) - parseInt(roll);
+combattext(0,mname,cname,dam);
+checker()
+}
+else
+{
+roll = Math.random();
+roll = roll * 5;
+roll = Math.ceil(roll);
+var xdex = parseInt(mdex) + parseInt(roll) - parseInt(iou)
+if ( xdex < dex)
+{
+combattext(1,mname,cname,0)
+checker()
+}
+else
+{
+var xzx = parseInt((parseInt(mstr) / 3)) + parseInt((parseInt(mdex) / 2));
+roll = Math.random();
+roll = roll * xzx;
+roll = Math.ceil(roll);
+dam = roll;
+chp = parseInt(chp) - parseInt(roll);
+combattext(0,mname,cname,dam);
+checker()
+}
+}
+}
+}
+function attack()
+{
+roll = Math.random();
+roll = roll * 100;
+roll = Math.ceil(roll);
+if (roll > -1 && roll < 4)
+{
+var zxc = parseInt((parseInt(str) / 2)) / 2;
+roll = Math.random();
+roll = roll * zxc;
+roll = Math.ceil(roll);
+dam = roll;
+chp = parseInt(chp) - parseInt(dam);
+combattext(1,cname,mname,dam);
+monlogic(0);
+}
+else if (roll > 3 && roll < 10)
+{
+combattext(1,cname,mname,0);
+monlogic(0);
+}
+else
+{
+aroll = Math.random();
+aroll = aroll * 4;
+aroll = Math.ceil(aroll);
+modifier = parseInt(zdex) + parseInt(aroll);
+if ( modifier < mdex )
+{
+combattext(1,cname,mname,0);
+monlogic(0);
+}
+else
+{
+var xzx = parseInt((parseInt(str) / 3)) + parseInt((parseInt(dex) / 2));
+roll = Math.random();
+roll = roll * xzx;
+roll = Math.ceil(roll);
+dam = roll;
+mchp = parseInt(mchp) - parseInt(roll);
+combattext(0,cname,mname,dam);
+monlogic(0);
+}
+}
+}
+function defend()
+{
+roll = Math.random();
+roll = roll * 100;
+roll = Math.ceil(roll);
+if ( roll < 26)
+{
+t[ii] = cname + " failed to defend " + sexx + "."
+linecheck(ii)
+monlogic(0)
+}
+else
+{
+defmod = parseInt(dex) / 10
+defmod = Math.ceil(defmod)
+mxx = parseInt(hp) / 8
+roll = Math.random();
+roll = roll * mxx;
+roll = Math.ceil(roll);
+chp = parseInt(chp) + parseInt(roll)
+t[ii] = cname + " successfully defended " + sexx + " and healed for " + roll + "."
+linecheck(ii)
+monlogic(defmod)
+}
+}
+function flee()
+{
+broll = Math.random();
+broll = broll * 100;
+broll = Math.ceil(broll);
+if (broll < 26)
+{
+t[ii] = cname + " failed to run away from " + mname + ".";
+linecheck(ii);
+monlogic(0);
+}
+else if( broll > 25 && broll < 86)
+{
+roll = Math.random();
+roll = roll * zdex;
+roll = Math.ceil(roll);
+if (broll < 3)
+{
+t[ii] = cname + " failed to run away from " + mname + ".";
+linecheck(ii);
+monlogic(0);
+}
+else
+{
+runaway();
+}
+}
+else
+{
+runaway();
+}
+}
+function combattext(miss,from,to,x)
+{
+croll = Math.random();
+croll = croll * 10;
+croll = Math.ceil(croll);
+hitword(croll);
+droll = Math.random();
+droll = droll * 7;
+droll = Math.ceil(droll);
+expressionword(droll);
+froll = Math.random();
+froll = froll * 15;
+froll = Math.ceil(froll);
+failword(froll);
+if ( miss == 0)
+{
+t[ii] = from + " " + hw + " " + to + " for " + x + ".  " + ew + ".";
+linecheck(ii)
+}
+else if ( miss == 1 && x == 0)
+{
+t[ii] = from + " " + fw + " " + to + ".";
+linecheck(ii)
+}
+else
+{
+t[ii] = from + " " + fw + " " + to + " and " + hw + " " + sexx + " for " + x + ".  " + ew + ".";
+linecheck(ii)
+}
+}
+function linecheck(ccc)
+{
+switch (ccc)
+{
+case 0:
+document.glory.t0.value = t[ii]
+ii++
+  break;
+case 1:
+document.glory.t1.value = t[ii]
+ii++
+  break;
+default:
+  alert("looks like we have an error!code3");
+}
+}
+function hitword(ppp)
+{
+switch (ppp)
+{
+case 0:
+hw = "hit";
+  break;
+case 1:
+hw = "whacked";
+  break;
+case 2:
+hw = "slamed";
+  break;
+case 3:
+hw = "whammoed";
+  break;
+case 4:
+hw = "slapped";
+  break;
+  case 5:
+hw = "walloped";
+  break;
+  case 6:
+hw = "slogged";
+  break;
+  case 7:
+hw = "struck";
+  break;
+  case 8:
+hw =  "socked";
+  break;
+  case 9:
+hw = "knocked";
+  break;
+  case 10:
+hw = "spanked";
+  break;
+  case 11:
+hw = "smack";
+  break;
+default:
+  alert("looks like we have an error!code2");
+}
+}
+function expressionword(uuu)
+{
+switch (uuu)
+{
+case 0:
+ew = "Like sweet dude"
+break;
+case 1:
+ew = "wow";
+  break;
+case 2:
+ew = "sweet";
+  break;
+case 3:
+ew = "awesome";
+  break;
+case 4:
+ew = "aaaaaawwwwww snap";
+  break;
+  case 5:
+ew = "woot woot";
+  break;
+  case 6:
+ew = "glory days";
+  break;
+  case 7:
+ew = "cha ching";
+  break;
+  case 8:
+ew = "holy Mary, mother of god";
+  break;
+default:
+  alert("looks like we have an error!code5");
+}
+  }
+function failword(hhh)
+{
+ switch (hhh)
+ {
+ case 0:
+ fw = "was apparently looking at something else while attempt to strike"
+ case 1:
+fw = "missed";
+  break;
+case 2:
+fw = "failed to hit";
+  break;
+case 3:
+fw = "came to nothing while attempting to hit";
+  break;
+case 4:
+fw = "miscarried while attempting to strike";
+  break;
+case 5:
+fw = "apparently gained no merit while failing to hit";
+  break;
+case 6:
+fw = "floundered at the thought of hitting";
+  break;
+case 7:
+fw = "cryed at the thought of striking";
+  break;
+case 8:
+fw = "hit the ground for a TON of damage but missed";
+  break;
+case 9:
+fw = "misrably missed";
+  break;
+case 10:
+fw = "sucked at life while trying to whack";
+  break;
+case 11:
+fw = "impressed no one while swinging at";
+  break;
+case 12:
+fw = "struck out after attempting to hit";
+  break;
+case 13:
+fw = "eloquently hit the ground while trying to hit";
+  break;
+case 14:
+fw = "turned O2 into O and O while attempting to hit";
+  break;
+case 15:
+fw = "embarrassed loved ones while failing to hit";
+  break;
+case 16:
+fw = "absconded from doing pain to";
+  break;
+default:
+  alert("looks like we have an error!code4");
+}
+}
+function writecookie(bn)
+{
+var ExpireDate = new Date ();
+ExpireDate.setTime(ExpireDate.getTime() + (365 * 24 * 3600 * 1000));
+
+  document.cookie = 'theglory' + "=" + escape(oy1 + "x" + ox1 + "/" + exp + "/" + atr + "/" + chp + "/" + nox + "/" + confusion + "/" + str + "/" + dex + "/" + itl + "/" + luk + "/" + race + "/" + sex + "/" + cname + "/" + cmp + "/" + gold + "/" + univmod + "/" + mstr + "/" + mdex + "/" + mitl + "/" + mname + "/" + spevent + "/" + expg) + 
+  ((365 == null) ? "" : "; expires=" + ExpireDate.toGMTString());
+
+ExpireDate.setTime(ExpireDate.getTime() + (365 * 24 * 3600 * 1000));
+
+  document.cookie = 'spacer' + "=" + escape("1") + 
+  ((365 == null) ? "" : "; expires=" + ExpireDate.toGMTString());
+if (bn == 1)
+{
+  location.href="levelcheck.html"
+}
+else
+{
+  location.href="loadgame.html"
+}
+}
+document.write('<form name="bob">');
+document.write('<table border="0">');
+document.write('<tr><td>current hp<br>');
+document.write('<input type="text" value="" name="tchp" size="3"><br>current mp<br>');
+document.write('<input type="text" value="" name="tcmp" size="3"><br>');
+document.write('</td><td><img src="mon/' + mname + '.jpg"></td>');
+document.write('<td>name:<br>health:<br>strength:<br>dexterity:<br>intelligence:</td>');
+document.write('<td>'+mname+'<br><input type="text" value="" name="tmchp" size="3"><br>'+mstr+'<br>'+mdex+'<br>'+mitl+'</td></tr></table></form>');
+document.bob.tchp.value = chp;
+document.bob.tcmp.value = cmp;
+document.bob.tmchp.value = mchp;
+</script>
+</head>
+<body bgcolor="black" text="green">
+<form name="glory">
+<table border="0"><tr><td>
+<input type="button" style="width:65px;height:25px" value="attack" name="r1" onclick="WTF(1)" ><br><br>
+<input type="button" style="width:65px;height:25px" value="defend" name="r2" onclick="WTF(2)" ><br><br>
+<input type="button" style="width:65px;height:25px" value="flee" name="r3" onclick="WTF(3)" ></td>
+<td><input type="text" value="-" name="t0" size="70"><br>
+<input type="text" value="-" name="t1" size="70"><br>
+</td><td></td></tr></table></form></body>

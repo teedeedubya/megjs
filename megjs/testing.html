@@ -1,0 +1,50 @@
+<html>
+<head>
+<script type="text/javascript">
+var turn = 0;
+
+var x=20;
+var y=20;
+var img = "<img src='2.jpg' ";
+var height = "height = '";
+var width = "' width = '";
+var end = "'>"
+var cake;
+function startTimer()
+{
+window.setInterval( "updateTime()", 100 );
+}
+function updateTime()
+{
+if ( turn == 0)
+{
+x+=6
+y+=5
+cake = img + height + y + width + x + end;
+document.getElementById( "testing" ).innerHTML = cake;
+if ( x > 600)
+{
+turn = 1;
+}
+}
+if ( turn == 1)
+{
+x-=6
+y-=5
+cake = img + height + y + width + x + end;
+document.getElementById( "testing" ).innerHTML = cake;
+if ( x < 150)
+{
+turn = 0;
+}
+}
+}
+
+</script>
+</head>
+<body onload="startTimer()">
+<form name = "yay">
+</form>
+<strong id = "testing">0</strong><br>
+</body>
+</html>

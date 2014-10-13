@@ -1,0 +1,64 @@
+<html>
+<head>
+<script type="text/javascript">
+begin = document.cookie.indexOf('theglory'+"=");
+begin += 'theglory'.length+1;       
+      end = document.cookie.indexOf(";", begin);
+var shreds;
+shreds = document.cookie.substring(begin, end);
+var shred = shreds.split("/");
+var g1 = shred[0];
+var exp = shred[1];
+var atr = shred[2];
+var chp = shred[3];
+var nox = shred[4];
+var confusion = shred[5];	
+var str = shred[6];
+var dex = shred[7];
+var itl = shred[8];
+var luk = shred[9];
+var race = shred[10];
+var sex = shred[11];
+var cname = shred[12];
+var cmp = shred[13];
+var gold = shred[14];
+var univmod = shred[15];
+var mstr = shred[16];
+var mdex = shred[17];
+var mitl = shred[18];
+var mname = shred[19];
+var spevent = shred[20];
+var expg = shred[21]
+var mhp = parseInt((parseInt(mstr)*4)) + parseInt((parseInt(mdex)*2)) + parseInt((parseInt(mitl)*2));
+var hp = parseInt((parseInt(str)*4)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*2));
+var mp = parseInt((parseInt(str)*2)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*4));
+var zvbi = g1.split("x");
+var oy1 = zvbi[0]
+var ox1 = zvbi[1]
+document.write("<body bgcolor='black' text='green'>")
+switch (spevent)
+{
+case "blackcat":
+
+break;
+case "roamingmerchant":
+break;
+case "mysteriousman":
+break;
+case "farmer":
+break;
+case "abandonedhouse":
+break;
+case "bandoftheives":
+break;
+case "chest":
+break;
+case "darkstranger":
+break;
+case "doggy":
+break;
+case "gnomeandcups":
+break;
+default:
+alert("error code 1")
+}

@@ -1,0 +1,237 @@
+<html><head><title>new game megsjs</title>
+<script = "javascript">
+var shred = 0;
+var g1 = "1x1";
+var exp = 1;
+var expg = 0;
+var atr = 10;
+var hp = 0;
+var chp = 0;
+var nox = 0;
+var confusion = 0;
+var str = 3;
+var dex = 3;
+var itl = 3;
+var luk = 0;
+var race = 0;
+var sex = 0;
+var cname = "fill me in";
+var mp = 0;
+var gold = 100;
+var sexx = 0;
+var cmp = 0;
+var univmod = -7;
+var mstr = 0;
+var mdex = 0;
+var mitl = 0;
+var mname = 0;
+var spevent = 0;
+var xcount = 0;
+var mchp = 0;
+function load()
+{
+document.glory.atrt.value = atr
+document.glory.strt.value = str
+document.glory.dext.value = dex
+document.glory.itlt.value = itl
+document.glory.cnametext.value = cname
+}
+function changerace(racex)
+{
+race = racex
+document.glory.race.value = racex
+}
+function changesex(sexx)
+{
+sex = sexx
+document.glory.sex.value = sexx
+}
+function resetatr()
+{
+atr = 10
+str = 3
+dex = 3
+itl = 3
+hp = 24
+document.glory.atrt.value = atr
+document.glory.strt.value = str
+document.glory.dext.value = dex
+document.glory.itlt.value = itl
+document.glory.healtht.value = hp
+}
+function calcstats(aa,bb,cc,dd)
+{
+zz = parseInt(atr) + parseInt(aa)
+yy = parseInt(str) + parseInt(bb)
+xx = parseInt(dex) + parseInt(cc)
+ww = parseInt(itl) + parseInt(dd)
+document.glory.atrt.value = zz
+document.glory.strt.value = yy
+document.glory.dext.value = xx
+document.glory.itlt.value = ww
+atr = zz
+str = yy
+dex = xx
+itl = ww
+hp = parseInt((parseInt(str)*4)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*2));
+document.glory.healtht.value = hp
+}
+function calcstatsa(aa,bb,cc,dd)
+{
+if (atr > 0)
+{
+calcstats(aa,bb,cc,dd);
+}
+else
+{
+}
+}
+function calcstatsb(aa,bb,cc,dd)
+{
+yy = parseInt(str) + parseInt(bb)
+xx = parseInt(dex) + parseInt(cc)
+ww = parseInt(itl) + parseInt(dd)
+if (yy == 0 || xx == 0 || ww == 0)
+{
+}
+else
+{
+calcstats(aa,bb,cc,dd)
+}
+}
+function done000()
+{
+alert(document.glory.cnametext.value)
+var xxxy
+var patt1=new RegExp(" ");
+xxxy = patt1.test(document.glory.cnametext.value);
+if ( xxxy = "true")
+{
+alert("Gandolf: YOU!!!! SHALL NOT!!!! PAAASSSSS!!!!!\nsorry, but your name may not have spaces")
+}
+else
+{
+done00()
+}
+}
+function done00()
+{
+cname = document.glory.cnametext.value
+if ( cname == "fill me in")
+{
+var Confirmcname = confirm("are you sure you want to leave your name, " + cname)
+}
+if (Confirmcname == true)
+{
+alert("you're weird for wanting your name left," + cname)
+done01();
+}
+if (Confirmcname == false)
+{
+alert("happy to hear that you have reconsidered this MADNESS!!!!")
+}
+else if ( cname == "megan")
+{
+alert("I love you sweety")
+done01()
+}
+else
+{
+done01()
+}
+}
+function done01()
+{
+if ( atr != 0)
+{
+alert("Are you INSANE!!?!?!??\nYou left " + atr + " point(s) unspent!\nGo back and allocate those points before I continue to do nothing about it")
+}
+else
+{
+done02()
+}
+}
+function done02()
+{
+if ( race == 0)
+{
+alert("This is SPARTA!!!!!\n....\n...you forgot to pick a race..")
+}
+else
+{
+done03()
+}
+}
+function done03()
+{
+if ( sex == 0)
+{
+alert("Doctor: congratsulations, it's a brand new baby.... eeerrmmm???\n\nDoctor: You should probably go back and pick a sex.")
+}
+else
+{
+donefinal();
+}
+}
+function donefinal()
+{
+var Confirmzor = confirm("You chose:\nname: " + cname + "\nrace: " + race + "\nsex: " + sex + "\nStrength: " + str + "\ndexterity: " + dex + "\nintelligence: " + itl + "\nhit points: " + hp + "\nIs this ok? If not, click Cancel.")
+if (Confirmzor == true)
+{
+creation();
+}
+if (Confirmzor == false)
+{
+alert("change what you will, but the gods are getting impatient")
+}
+}
+
+function creation()
+{
+chp = hp
+cmp = parseInt((parseInt(str)*2)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*4))
+var ExpireDate = new Date ();
+ExpireDate.setTime(ExpireDate.getTime() + (365 * 24 * 3600 * 1000));
+
+  document.cookie = 'theglory' + "=" + escape(g1 + "/" + exp + "/" + atr + "/" + chp + "/" + nox + "/" + confusion + "/" + str + "/" + dex + "/" + itl + "/" + luk + "/" + race + "/" + sex + "/" + cname + "/" + cmp + "/" + gold + "/" + univmod + "/" + mstr + "/" + mdex + "/" + mitl + "/" + mname + "/" + spevent + "/" + expg) + 
+  ((365 == null) ? "" : "; expires=" + ExpireDate.toGMTString());
+
+ExpireDate.setTime(ExpireDate.getTime() + (365 * 24 * 3600 * 1000));
+
+  document.cookie = 'spacer' + "=" + escape("1") + 
+  ((365 == null) ? "" : "; expires=" + ExpireDate.toGMTString());
+  location.href="newgame1.html"
+}
+</script>
+</head>
+<body onload="load()">
+<link rel="stylesheet" type="text/css" href="style.css" />
+<center><font color="white"><h1><b>NEW GAME</b></h1></font></center>
+<form name="glory">
+<p> welcome to megs js, A minimally functional, maximumly entertaining RPG.<br>
+Before you can begin your glorious adventure, you first must answer questions<br>
+describing your charicter.</p>
+<br>
+name:
+<input type="text" value='cname' size="10" name="cnametext"><br><br>
+race: &nbsp;<input type="text" value="race" size="10" name="race"><br>
+<input type="button" style="width:65px;height:25px" value="Human" name="r1" onclick="changerace(document.glory.r1.value)" >
+<input type="button" value="Orc" style="width:65px;height:25px" name="r2" onclick="changerace(document.glory.r2.value)" >
+<input type="button" value="Elf" style="width:65px;height:25px" name="r3" onclick="changerace(document.glory.r3.value)" >
+<input type="button" value="Undead" style="width:65px;height:25px" name="r4" onclick="changerace(document.glory.r4.value)" ><br>
+Sex: &nbsp;<input type="text" value="sex" size="10" name="sex"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button"  value="male" style="width:65px;height:25px" name="s1" onclick="changesex(document.glory.s1.value)" >
+<input type="button" value="female" style="width:65px;height:25px" name="s2" onclick="changesex(document.glory.s2.value)" ><br><br>
+attribute points <input type="text" value='0' size="3" name="atrt"><input type="button" value="reset" style="width:65px;height:25px" name="resetvar" onclick="resetatr()" ><br>
+strength&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value='0' size="3" name="strt"><input type="button" value="+1" style="width:25px;height:25px" name="strp1" onclick="calcstatsa(-1, 1, 0, 0)" ><input type="button" value="-1" style="width:25px;height:25px" name="strm1" onclick="calcstatsb(1, -1, 0, 0)" ><br>
+dexterity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value='0' size="3" name="dext"><input type="button" value="+1" style="width:25px;height:25px" name="dexp1" onclick="calcstatsa(-1, 0, 1, 0 )" ><input type="button" value="-1" style="width:25px;height:25px" name="dexm1" onclick="calcstatsb(1, 0, -1, 0)" ><br>
+intelligence&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value='0' size="3" name="itlt"><input type="button" value="+1" style="width:25px;height:25px" name="itlp1" onclick="calcstatsa(-1, 0, 0, 1)" ><input type="button" value="-1" style="width:25px;height:25px" name="itlm1" onclick="calcstatsb(1, 0, 0, -1)" ><br>
+<br>health = <input type="text" value='0' size="3" name="healtht"><br>
+<br>
+<input type="button" value="DONE" style="width:200px;height:60px" name="done0" onclick="done00()" >
+</form></body></html>
+
+
+
+

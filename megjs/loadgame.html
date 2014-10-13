@@ -1,0 +1,835 @@
+<html>
+<head>
+</head>
+<script = "javascript">
+begin = document.cookie.indexOf('theglory'+"=");
+begin += 'theglory'.length+1;       
+      end = document.cookie.indexOf(";", begin);
+var shreds 
+shreds = document.cookie.substring(begin, end);
+var shred = shreds.split("/");
+var g1 = shred[0];
+var exp = shred[1];
+var expg = 0;
+var atr = shred[2];
+var chp = shred[3];
+var nox = shred[4];
+var confusion = shred[5];	
+var str = shred[6];
+var dex = shred[7];
+var itl = shred[8];
+var luk = shred[9];
+var race = shred[10];
+var sex = shred[11];
+var cname = shred[12];
+var cmp = shred[13];
+var gold = shred[14];
+var univmod = shred[15];
+var mstr = shred[16];
+var mdex = shred[17];
+var mitl = shred[18];
+var mname = shred[19];
+var spevent = shred[20];
+var xcount = shred[21];
+var mchp = shred[22]
+var hp = parseInt((parseInt(str)*4)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*2));
+var mp = parseInt((parseInt(str)*2)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*4));
+var x = 0;
+var y = 0;
+var s = 0;
+var oy1 = 0;
+var ox1 = 0;
+var zzzz = 1;
+var e=window.event || e
+var gm = g1.split("x")
+var oy = gm[0];
+var ox = gm[1];
+var gg = new Array(25)
+var map = new Array("1$1$0$grass", "1$2$0$grassb", "1$3$0$grass", "1$4$0$grassb", "1$5$0$grass", "1$6$0$grass", "1$7$0$grassb", "1$8$1$grasstree", "1$9$1$grasstree", "2$1$0$grass", "2$2$0$grassb", "2$3$0$grass", "2$3$0$grass", "2$4$0$grassb", "2$5$0$grass", "2$6$0$grassb", "2$7$1$grasstree", "2$8$1$grasstree", "2$9$1$grasstree", "3$1$0$grasstrailhorizontal", "3$2$0$grasstrailhorizontal", "3$3$0$grasstrailhorizontal", "3$4$0$grasstrailhorizontal", "3$5$0$grasstrailhorizontal", "3$6$0$grasstrailhorizontal", "3$7$0$grasstrailhorizontal", "3$8$0$grasstrailhorizontal", "3$9$0$grasstrailhorizontal", "4$1$0$grass", "4$2$0$grassb", "4$3$0$grass", "4$4$0$grassb", "4$5$0$grass", "4$6$0$grass", "4$7$0$grassb", "4$8$1$grasstree", "4$9$1$grasstree", "5$1$0$grass", "5$2$0$grassb", "5$3$0$grass", "5$4$0$grassb", "5$5$0$grass", "5$6$0$grass", "5$7$0$grassb", "5$8$1$grasstree", "5$9$1$grasstree")
+var a0 = map[0].split("$");var a1 = map[1].split("$");var a2 = map[2].split("$");var a3 = map[3].split("$");var a4 = map[4].split("$");var a5 = map[5].split("$");var a6 = map[6].split("$");var a7 = map[7].split("$");var a8 = map[8].split("$");var a9 = map[9].split("$");var a10 = map[10].split("$");var a11 = map[11].split("$");var a12 = map[12].split("$");var a13 = map[13].split("$");var a14 = map[14].split("$");var a15 = map[15].split("$");var a16 = map[16].split("$");var a17 = map[17].split("$");var a18 = map[18].split("$");var a19 = map[19].split("$");var a20 = map[20].split("$");var a21 = map[21].split("$");var a22 = map[22].split("$");var a23 = map[23].split("$");var a24 = map[24].split("$");var a25 = map[25].split("$");var a26 = map[26].split("$");var a27 = map[27].split("$");var a28 = map[28].split("$");var a29 = map[29].split("$");var a30 = map[30].split("$");var a31 = map[31].split("$");var a32 = map[32].split("$");var a33 = map[33].split("$");var a34 = map[34].split("$");var a35 = map[35].split("$");var a36 = map[36].split("$");var a37 = map[37].split("$");var a38 = map[38].split("$");var a39 = map[39].split("$");var a40 = map[40].split("$");var a41 = map[41].split("$");var a42 = map[42].split("$");var a43 = map[43].split("$");var a44 = map[44].split("$")
+var monstor = new Array("0/2/2/2/giantgrasshopper","1/2/3/1/rat","2/3/2/1/goblin","3/1/2/2/slime","4/4/1/1/troll","5/1/2/4/magician","6/3/3/3/warrior","7/4/3/3/rabidwolf","8/6/2/1/ogre","9/2/5/4/apprenticeninja","10/4/4/4/acidsnake","11/5/3/3/robedman","12/6/6/4/hungrygiant","13/6/4/6/dwarf","14/8/2/2/irongolem","15/2/2/1/Maccultist","16/9/3/10/JehovahsWitness","16/7/11/1/Scientoligist","18/14/6/6/boomer","19/15/8/8/knight","20/20/5/16/paladin","21/17/17/4/tele-marketer","22/27/13/1/NetINS","23/15/24/6/NinjaPirateZombieRobot","24/15/4/30/OprahWinfrey","25/22/1/14/BarackObama")
+var m0 = monstor[0].split("/");var m1 = monstor[1].split("/");var m2 = monstor[2].split("/");var m3 = monstor[3].split("/");var m4 = monstor[4].split("/");var m5 = monstor[5].split("/");var m6 = monstor[6].split("/");var m7 = monstor[7].split("/");var m8 = monstor[8].split("/");var m9 = monstor[9].split("/");var m10 = monstor[10].split("/");var m11 = monstor[11].split("/");var m12 = monstor[12].split("/");var m13 = monstor[13].split("/");var m14 = monstor[14].split("/");var m15 = monstor[15].split("/");var m16 = monstor[16].split("/");var m17 = monstor[17].split("/");var m18 = monstor[18].split("/");var m19 = monstor[19].split("/");var m20 = monstor[20].split("/");var m21 = monstor[21].split("/");var m22 = monstor[22].split("/");var m23 = monstor[23].split("/");var roll = Math.random();
+gg[0] = 0
+function eventloader()
+{
+if (spevent != 0)
+{
+location.href="spevent.html"
+}
+else if ( mname != 0)
+{
+location.href="combat.html"
+}
+else
+{
+}
+}
+
+tilefinder(gm[0], gm[1], 0)
+function tilefinder(F,T,W)
+{
+if ( F == a0[0] && T == a0[1])
+{
+y = a0[0]
+x = a0[1]
+s = a0[2]
+gg[W] = a0[3]
+}
+else if ( F == a1[0] && T == a1[1])
+{
+y = a1[0]
+x = a1[1]
+s = a1[2]
+gg[W] = a1[3]
+}
+else if ( F == a2[0] && T == a2[1])
+{
+y = a2[0]
+x = a2[1]
+s = a2[2]
+gg[W] = a2[3]
+}
+else if ( F == a3[0] && T == a3[1])
+{
+y = a3[0]
+x = a3[1]
+s = a3[2]
+gg[W] = a3[3]
+}
+else if ( F == a4[0] && T == a4[1])
+{
+y = a4[0]
+x = a4[1]
+s = a4[2]
+gg[W] = a4[3]
+}
+else if ( F == a5[0] && T == a5[1])
+{
+y = a5[0]
+x = a5[1]
+s = a5[2]
+gg[W] = a5[3]
+}
+else if ( F == a6[0] && T == a6[1])
+{
+y = a6[0]
+x = a6[1]
+s = a6[2]
+gg[W] = a6[3]
+}
+else if ( F == a7[0] && T == a7[1])
+{
+y = a7[0]
+x = a7[1]
+s = a7[2]
+gg[W] = a7[3]
+}
+else if ( F == a8[0] && T == a8[1])
+{
+y = a8[0]
+x = a8[1]
+s = a8[2]
+gg[W] = a8[3]
+}
+else if ( F == a9[0] && T == a9[1])
+{
+y = a9[0]
+x = a9[1]
+s = a9[2]
+gg[W] = a9[3]
+}
+else if ( F == a10[0] && T == a10[1])
+{
+y = a10[0]
+x = a10[1]
+s = a10[2]
+gg[W] = a10[3]
+}
+else if ( F == a11[0] && T == a11[1])
+{
+y = a11[0]
+x = a11[1]
+s = a11[2]
+gg[W] = a11[3]
+}
+else if ( F == a12[0] && T == a12[1])
+{
+y = a12[0]
+x = a12[1]
+s = a12[2]
+gg[W] = a12[3]
+}
+else if ( F == a13[0] && T == a13[1])
+{
+y = a13[0]
+x = a13[1]
+s = a13[2]
+gg[W] = a13[3]
+}
+else if ( F == a14[0] && T == a14[1])
+{
+y = a14[0]
+x = a14[1]
+s = a14[2]
+gg[W] = a14[3]
+}
+else if ( F == a15[0] && T == a15[1])
+{
+y = a15[0]
+x = a15[1]
+s = a15[2]
+gg[W] = a15[3]
+}
+else if ( F == a16[0] && T == a16[1])
+{
+y = a16[0]
+x = a16[1]
+s = a16[2]
+gg[W] = a16[3]
+}
+else if ( F == a17[0] && T == a17[1])
+{
+y = a17[0]
+x = a17[1]
+s = a17[2]
+gg[W] = a17[3]
+}
+else if ( F == a18[0] && T == a18[1])
+{
+y = a18[0]
+x = a18[1]
+s = a18[2]
+gg[W] = a18[3]
+}
+else if ( F == a19[0] && T == a19[1])
+{
+y = a19[0]
+x = a19[1]
+s = a19[2]
+gg[W] = a19[3]
+}
+else if ( F == a20[0] && T == a20[1])
+{
+y = a20[0]
+x = a20[1]
+s = a20[2]
+gg[W] = a20[3]
+}
+else if ( F == a21[0] && T == a21[1])
+{
+y = a21[0]
+x = a21[1]
+s = a21[2]
+gg[W] = a21[3]
+}
+else if ( F == a22[0] && T == a22[1])
+{
+y = a22[0]
+x = a22[1]
+s = a22[2]
+gg[W] = a22[3]
+}
+else if ( F == a23[0] && T == a23[1])
+{
+y = a23[0]
+x = a23[1]
+s = a23[2]
+gg[W] = a23[3]
+}
+else if ( F == a24[0] && T == a24[1])
+{
+y = a24[0]
+x = a24[1]
+s = a24[2]
+gg[W] = a24[3]
+}
+else if ( F == a25[0] && T == a25[1])
+{
+y = a25[0]
+x = a25[1]
+s = a25[2]
+gg[W] = a25[3]
+}
+else if ( F == a26[0] && T == a26[1])
+{
+y = a26[0]
+x = a26[1]
+s = a26[2]
+gg[W] = a26[3]
+}
+else if ( F == a27[0] && T == a27[1])
+{
+y = a27[0]
+x = a27[1]
+s = a27[2]
+gg[W] = a27[3]
+}
+else if ( F == a28[0] && T == a28[1])
+{
+y = a28[0]
+x = a28[1]
+s = a28[2]
+gg[W] = a28[3]
+}
+else if ( F == a29[0] && T == a29[1])
+{
+y = a29[0]
+x = a29[1]
+s = a29[2]
+gg[W] = a29[3]
+}
+else if ( F == a30[0] && T == a30[1])
+{
+y = a30[0]
+x = a30[1]
+s = a30[2]
+gg[W] = a30[3]
+}
+else if ( F == a31[0] && T == a31[1])
+{
+y = a31[0]
+x = a31[1]
+s = a31[2]
+gg[W] = a31[3]
+}
+else if ( F == a32[0] && T == a32[1])
+{
+y = a32[0]
+x = a32[1]
+s = a32[2]
+gg[W] = a32[3]
+}
+else if ( F == a33[0] && T == a33[1])
+{
+y = a33[0]
+x = a33[1]
+s = a33[2]
+gg[W] = a33[3]
+}
+else if ( F == a34[0] && T == a34[1])
+{
+y = a34[0]
+x = a34[1]
+s = a34[2]
+gg[W] = a34[3]
+}
+else if ( F == a35[0] && T == a35[1])
+{
+y = a35[0]
+x = a35[1]
+s = a35[2]
+gg[W] = a35[3]
+}
+else if ( F == a36[0] && T == a36[1])
+{
+y = a36[0]
+x = a36[1]
+s = a36[2]
+gg[W] = a36[3]
+}
+else if ( F == a37[0] && T == a37[1])
+{
+y = a37[0]
+x = a37[1]
+s = a37[2]
+gg[W] = a37[3]
+}
+else if ( F == a38[0] && T == a38[1])
+{
+y = a38[0]
+x = a38[1]
+s = a38[2]
+gg[W] = a38[3]
+}
+else if ( F == a39[0] && T == a39[1])
+{
+y = a39[0]
+x = a39[1]
+s = a39[2]
+gg[W] = a39[3]
+}
+else if ( F == a40[0] && T == a40[1])
+{
+y = a40[0]
+x = a40[1]
+s = a40[2]
+gg[W] = a40[3]
+}
+else if ( F == a41[0] && T == a41[1])
+{
+y = a41[0]
+x = a41[1]
+s = a41[2]
+gg[W] = a41[3]
+}
+else if ( F == a42[0] && T == a42[1])
+{
+y = a42[0]
+x = a42[1]
+s = a42[2]
+gg[W] = a42[3]
+}
+else if ( F == a43[0] && T == a43[1])
+{
+y = a43[0]
+x = a43[1]
+s = a43[2]
+gg[W] = a43[3]
+}
+else if ( F == a44[0] && T == a44[1])
+{
+y = a44[0]
+x = a44[1]
+s = a44[2]
+gg[W] = a44[3]
+}
+else
+{
+gg[W] = "black"
+s = 1
+}
+}
+function generatemap()
+{
+ccc = y
+bbb = x
+var z2
+var z3
+z1 = oy
+z2 = parseInt(ox) + 1
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = oy
+z2 = parseInt(ox) + 2
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = oy
+z2 = parseInt(ox) + 3
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = oy
+z2 = parseInt(ox) + 4
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 1
+z2 = ox
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 1
+z2 = parseInt(ox) + 1
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 1
+z2 = parseInt(ox) + 2
+tilefinder(z1,z2,zzzz)
+s8 = s
+zzzz++
+z1 = parseInt(oy) + 1
+z2 = parseInt(ox) + 3
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 1
+z2 = parseInt(ox) + 4
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 2
+z2 = ox
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 2
+z2 = parseInt(ox) + 1
+tilefinder(z1,z2,zzzz)
+s12 = s
+zzzz++
+z1 = parseInt(oy) + 2
+z2 = parseInt(ox) + 2
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 2
+z2 = parseInt(ox) + 3
+tilefinder(z1,z2,zzzz)
+s14 = s
+zzzz++
+z1 = parseInt(oy) + 2
+z2 = parseInt(ox) + 4
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 3
+z2 = ox
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 3
+z2 = parseInt(ox) + 1
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 3
+z2 = parseInt(ox) + 2
+tilefinder(z1,z2,zzzz)
+s18 = s
+zzzz++
+z1 = parseInt(oy) + 3
+z2 = parseInt(ox) + 3
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 3
+z2 = parseInt(ox) + 4
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 4
+z2 = ox
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 4
+z2 = parseInt(ox) + 1
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 4
+z2 = parseInt(ox) + 2
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 4
+z2 = parseInt(ox) + 3
+tilefinder(z1,z2,zzzz)
+zzzz++
+z1 = parseInt(oy) + 4
+z2 = parseInt(ox) + 4
+tilefinder(z1,z2,zzzz)
+}
+function done()
+{
+var ExpireDate = new Date ();
+ExpireDate.setTime(ExpireDate.getTime() + (365 * 24 * 3600 * 1000));
+
+  document.cookie = 'theglory' + "=" + escape(oy1 + "x" + ox1 + "/" + exp + "/" + atr + "/" + chp + "/" + nox + "/" + confusion + "/" + str + "/" + dex + "/" + itl + "/" + luk + "/" + race + "/" + sex + "/" + cname + "/" + cmp + "/" + gold + "/" + univmod + "/" + mstr + "/" + mdex + "/" + mitl + "/" + mname + "/" + spevent + "/" + expg) + 
+  ((365 == null) ? "" : "; expires=" + ExpireDate.toGMTString());
+
+ExpireDate.setTime(ExpireDate.getTime() + (365 * 24 * 3600 * 1000));
+
+  document.cookie = 'spacer' + "=" + escape("1") + 
+  ((365 == null) ? "" : "; expires=" + ExpireDate.toGMTString());
+  location.href="loadgame.html"
+}
+function randomeventengine()
+{
+var rand_no = Math.random();
+rand_no = rand_no * 100;
+rand_no = Math.ceil(rand_no);
+if (rand_no < 6)
+{
+specialevent()
+}
+else if (rand_no > 5 && rand_no < 22)
+{
+monsterengine()
+}
+else
+{
+}
+}
+function specialevent()
+{
+var hhh = Math.random();
+hhh = hhh * 10;
+hhh = Math.ceil(hhh);
+var event = new Array("blackcat","roamingmerchant","mysteriousman","farmer","abandonedhouse","bandoftheives","chest","darkstranger","doggy","gnomeandcups")
+spevent = event[hhh]
+}
+function monsterengine()
+{
+roll = roll * 101;
+roll = Math.ceil(roll);
+roll = parseInt(roll) + parseInt(univmod)
+if ( roll < 46 )
+{
+
+roll = Math.random();
+roll = roll * 7;
+roll = Math.ceil(roll);
+if ( roll == 1)
+{
+mstr = m0[1]
+mdex = m0[2]
+mitl = m0[3]
+mname = m0[4]
+}
+
+else if ( roll == 2 )
+{
+mstr = m1[1]
+mdex = m1[2]
+mitl = m1[3]
+mname = m1[4]
+}
+
+else if ( roll == 3 )
+{
+mstr = m2[1]
+mdex = m2[2]
+mitl = m2[3]
+mname = m2[4]
+}
+
+else if ( roll == 4 )
+{
+mstr = m3[1]
+mdex = m3[2]
+mitl = m3[3]
+mname = m3[4]
+}
+
+else if ( roll == 5 )
+{
+mstr = m4[1]
+mdex = m4[2]
+mitl = m4[3]
+mname = m4[4]
+}
+
+else if ( roll == 6 )
+{
+mstr = m5[1]
+mdex = m5[2]
+mitl = m5[3]
+mname = m5[4]
+}
+
+else if ( roll == 7 )
+{
+mstr = m6[1]
+mdex = m6[2]
+mitl = m6[3]
+mname = m6[4]
+}
+}
+else if ( roll > 45 && roll < 72) 
+{
+
+roll = Math.random();
+roll = roll * 5;
+roll = Math.ceil(roll);
+if ( roll == 1)
+{
+mstr = m7[1]
+mdex = m7[2]
+mitl = m7[3]
+mname = m7[4]
+}
+
+else if ( roll == 2 )
+{
+mstr = m8[1]
+mdex = m8[2]
+mitl = m8[3]
+mname = m8[4]
+}
+
+else if ( roll == 3 )
+{
+mstr = m9[1]
+mdex = m9[2]
+mitl = m9[3]
+mname = m9[4]
+}
+
+else if ( roll == 4 )
+{
+mstr = m10[1]
+mdex = m10[2]
+mitl = m10[3]
+mname = m10[4]
+}
+
+else if ( roll == 5 )
+{
+mstr = m11[1]
+mdex = m11[2]
+mitl = m11[3]
+mname = m11[4]
+}
+}
+else if ( roll > 71 && roll < 83)
+{
+
+roll = Math.random();
+roll = roll * 5;
+roll = Math.ceil(roll);
+if ( roll == 1)
+{
+mstr = m12[1]
+mdex = m12[2]
+mitl = m12[3]
+mname = m12[4]
+}
+
+else if ( roll == 2 )
+{
+mstr = m13[1]
+mdex = m13[2]
+mitl = m13[3]
+mname = m13[4]
+}
+
+else if ( roll == 3 )
+{
+mstr = m14[1]
+mdex = m14[2]
+mitl = m14[3]
+mname = m14[4]
+}
+
+else if ( roll == 4 )
+{
+mstr = m15[1]
+mdex = m15[2]
+mitl = m15[3]
+mname = m15[4]
+}
+
+else if ( roll == 5 )
+{
+mstr = m16[1]
+mdex = m16[2]
+mitl = m16[3]
+mname = m16[4]
+}
+}
+else if ( roll > 82 &&  roll < 95)
+{
+
+roll = Math.random();
+roll = roll * 4;
+roll = Math.ceil(roll);
+if ( roll == 1)
+{
+mstr = m17[1]
+mdex = m17[2]
+mitl = m17[3]
+mname = m17[4]
+}
+
+else if ( roll == 2 )
+{
+mstr = m18[1]
+mdex = m18[2]
+mitl = m18[3]
+mname = m18[4]
+}
+
+else if ( roll == 3 )
+{
+mstr = m19[1]
+mdex = m19[2]
+mitl = m19[3]
+mname = m19[4]
+}
+
+else if ( roll == 4 )
+{
+mstr = m20[1]
+mdex = m20[2]
+mitl = m20[3]
+mname = m20[4]
+}
+}
+else if( roll > 94)
+{
+
+roll = Math.random();
+roll = roll * 3;
+roll = Math.ceil(roll);
+if ( roll == 1)
+{
+mstr = m21[1]
+mdex = m21[2]
+mitl = m21[3]
+mname = m21[4]
+}
+
+else if ( roll == 2 )
+{
+mstr = m22[1]
+mdex = m22[2]
+mitl = m22[3]
+mname = m22[4]
+}
+
+else if ( roll == 3 )
+{
+mstr = m23[1]
+mdex = m23[2]
+mitl = m23[3]
+mname = m23[4]
+
+}
+}
+}
+function disppageofglory()
+{
+document.write("<table border=\"0\"><tr><td>name:<br>health:<br>magic:<br>experience:<br>strength:<br>dexterity:<br>intelligence:<br>gold:</td><td>"+cname+"<br>"+chp+"/"+hp+"<br>"+cmp+"<br>"+exp+"<br>"+str+"<br>"+dex+"<br>"+itl+"<br>"+gold+"</td><td><img src=\"maps/" + gg[0] + ".gif\"><img src=\"maps/" + gg[1] + ".gif\"><img src=\"maps/" + gg[2] + ".gif\"><img src=\"maps/" + gg[3] + ".gif\"><img src=\"maps/" + gg[4] + ".gif\"><br><img src=\"maps/" + gg[5] + ".gif\"><img src=\"maps/" + gg[6] + ".gif\"><img src=\"maps/" + gg[7] + ".gif\"><img src=\"maps/" + gg[8] + ".gif\"><img src=\"maps/" + gg[9] + ".gif\"><br><img src=\"maps/" + gg[10] + ".gif\"><img src=\"maps/" + gg[11] + ".gif\"><img src=\"maps/megan1.gif\"><img src=\"maps/" + gg[13] + ".gif\"><img src=\"maps/" + gg[14] + ".gif\"><br><img src=\"maps/" + gg[15] + ".gif\"><img src=\"maps/" + gg[16] + ".gif\"><img src=\"maps/" + gg[17] + ".gif\"><img src=\"maps/" + gg[18] + ".gif\"><img src=\"maps/" + gg[19] + ".gif\"><br><img src=\"maps/" + gg[20] + ".gif\"><img src=\"maps/" + gg[21] + ".gif\"><img src=\"maps/" + gg[22] + ".gif\"><img src=\"maps/" + gg[23] + ".gif\"><img src=\"maps/" + gg[24] + ".gif\"><br></td></tr></table></font>")
+document.onkeyup=function(e){
+ var e=window.event || e
+ox1 = ox
+oy1 = oy
+ in1 = e.keyCode
+if (in1 == 37)
+{
+	if (s12 == 0)
+	{
+	}
+	else
+	{
+	return;
+	}
+ox1 = parseInt(ox) + -1
+done()
+}
+else if (in1 == 38)
+{
+	if (s8 == 0)
+	{
+	}
+	else
+	{
+	return;
+	}
+oy1 = parseInt(oy) + -1
+done()
+}
+else if (in1 == 39)
+{
+	if (s14 == 0)
+	{
+	}
+	else
+	{
+	return;
+	}
+ox1 = parseInt(ox) + 1
+done()
+}
+else if (in1 == 40)
+{
+	if (s18 == 0)
+	{
+	}
+	else
+	{
+	return;
+	}
+oy1 = parseInt(oy) + 1
+done()
+}
+else
+{
+return;
+}
+}
+}
+eventloader()
+randomeventengine()
+generatemap()
+disppageofglory()
+</script>
+<body bgcolor="black" text="green">
+</body>
+</html>

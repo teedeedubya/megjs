@@ -1,0 +1,88 @@
+<html><head><title>story line megs js</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script = "javascript">
+begin = document.cookie.indexOf('theglory'+"=");
+begin += 'theglory'.length+1;       
+      end = document.cookie.indexOf(";", begin);
+var shreds 
+shreds = document.cookie.substring(begin, end);
+var shred = shreds.split("/");
+var g1 = shred[0];
+var exp = shred[1];
+var expg = 0;
+var atr = shred[2];
+var chp = shred[3];
+var nox = shred[4];
+var confusion = shred[5];	
+var str = shred[6];
+var dex = shred[7];
+var itl = shred[8];
+var luk = shred[9];
+var race = shred[10];
+var sex = shred[11];
+var cname = shred[12];
+var cmp = shred[13];
+var gold = shred[14];
+var hp = parseInt((parseInt(str)*4)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*2));
+var mp = parseInt((parseInt(str)*2)) + parseInt((parseInt(dex)*2)) + parseInt((parseInt(itl)*4));
+var sexx = sex;
+var racex = race;
+if ( sexx == "male")
+{
+sexx = "his";
+}
+else
+{
+sexx = "her";
+}
+if ( racex == "Human")
+{
+racex = "human house"
+}
+else if ( racex == "Orc")
+{
+racex = "orc burrow"
+}
+else if ( racex == "Elf")
+{
+racex = "elven treehouse"
+}
+else
+{
+racex = "undead crypt"
+}
+function continued()
+{
+location.href="loadgame.html"
+}
+</script>
+</head><body>
+<font color="white" size="30"><center>Story Line</font><br><br>
+<script = "text/javascript">
+
+if ( cname == "megan")
+{
+document.write("It was a quit night in Megania and all was well.<br> Untill tragedy struck!!<br>")
+document.write("While Megan was snuggling with "+sexx+" snuggle bunny a Terrible monster came in!<br>")
+document.write("As the attack continued, it became clearer and clearer as to who the culprit was.<br>")
+document.write("It was none other than megan's close trusted friend,<font color='red'> Lamby</font>.<br>")
+document.write("As <font color='red'>Lamby</font> continued to terrorize Megan and her snuggle bunny, The town police<br>")
+document.write("were rushing to her "+ racex +".  However, The town gaurds were simply too slow.<br>")
+document.write("Normally, the Gaurds are fast enough to response to such an incident... but not this time.<br>")
+document.write("Megan yells,\"It\'s because i\'m a "+race+", isn\'t it!\" The guards walk out, thinking but not saying,\"wtf?\" and Megan\'s snuggle bunny has been kidnapped<br>")
+document.write("by the <font color='white'>evil</font><font color='red'> Lamby</font><br>!")
+document.write('<input type="button" name="glory" value="continue" onclick="continued()">')
+}
+else
+{
+document.writeln("It was a quiet night in Megania and all was well.Untill tragedy struck!<br> While");
+document.writeln(""+cname+" was sleeping, The town came under attack by a horde of creatures.<br>")
+document.write("Cretures that normally do not bother the villagers had suddenly become hostile.<br>")
+document.write("And now, seemingly, have a thrist for blood.  As the attack continued, you were forced<br>")
+document.write("to leave your home to help defend the town. But it was all for a lost cause, as the town was<br> ")
+document.write("in flames and your home lay in ruins.  As if that wasn't bad enough, One of the foul creatures,<br>")
+document.write("that once had served you well, had snuck up behind you and knocked you out.")
+document.write("And this is where your story begins.<br>")
+document.write('<input type="button" name="glosdfgsy" value="continue" onclick="continued()">')
+} 
+</script>
